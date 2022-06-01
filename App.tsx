@@ -6,22 +6,27 @@ import {configureStore} from '@reduxjs/toolkit';
 import 'react-native-gesture-handler';	
 import Slice from './reducer'
 
-import Page from './pages/home'
+import Index from './pages/Index'
+import Auth from './pages/auth/Index'
 
 const store = configureStore({reducer: Slice.reducer});
 const Stack = createNativeStackNavigator();
-
 
 const AppContainer = () => {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator  initialRouteName={'Index'}  screenOptions={{headerShown: false, animation:'slide_from_right'}}>
 				<Stack.Screen name="Index" component={Index} />	
+				<Stack.Screen name="Auth" component={Auth} />			
 			</Stack.Navigator>
 		</NavigationContainer>
 	)
 }
 
 export default function App() {
-  return <Page></Page>
+	return (
+		<Provider store={store}>
+			<AppContainer />
+		</Provider>
+	)
 }

@@ -1,7 +1,7 @@
 {
   "name": "neon.wallet.app",
   "version": "1.0.0",
-  "main": "index.tsx",
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start --tunnel",
     "android": "expo start --android",
@@ -14,8 +14,10 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "@react-navigation/native": "^6.0.10",
+    "@react-navigation/material-bottom-tabs": "^6.2.1",
+    "@react-navigation/native": "6.0.6",
     "@react-navigation/native-stack": "^6.6.2",
+    "@react-navigation/stack": "^6.2.1",
     "@reduxjs/toolkit": "^1.8.2",
     "@walletconnect/client": "^1.7.8",
     "base-64": "^1.0.0",
@@ -31,7 +33,13 @@
     "react": "17.0.1",
     "react-native": "0.64.3",
     "react-native-dotenv": "^3.3.1",
+    "react-native-gesture-handler": "~2.1.0",
     "react-native-get-random-values": "~1.7.0",
+    "react-native-loading-spinner-overlay": "^3.0.0",
+    "react-native-paper": "^4.12.1",
+    "react-native-responsive-screen": "^1.4.2",
+    "react-native-safe-area-context": "^4.2.5",
+    "react-native-screens": "^3.13.1",
     "react-native-svg": "^12.3.0",
     "react-native-tcp": "^4.0.0",
     "react-redux": "^8.0.2",
