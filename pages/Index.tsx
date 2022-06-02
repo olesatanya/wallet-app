@@ -45,7 +45,7 @@ const SettingStackNavigator = () => {
 }
 function Index() {
 	return (
-		<Tab.Navigator initialRouteName='Wallet' labeled={false}   activeColor= {Colors.Light} inactiveColor= {Colors.Primary} barStyle={{ backgroundColor: "rgba(0, 0, 0, 0.9)"}} > 
+		<Tab.Navigator initialRouteName='Wallet' labeled={false}  activeColor= {Colors.Light} inactiveColor= {Colors.Primary}  barStyle={{ backgroundColor: "rgba(0, 0, 0, 0.9)"}} > 
 			 <Tab.Screen
 				name="Wallet"
 				options={{   

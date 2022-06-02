@@ -15,7 +15,7 @@ const Stack = createNativeStackNavigator();
 const AppContainer = () => {
 	return (
 		<NavigationContainer>
-			<Stack.Navigator  initialRouteName={'Index'}  screenOptions={{headerShown: false, animation:'slide_from_right'}}>
+			<Stack.Navigator  initialRouteName={'Auth'}  screenOptions={{headerShown: false, animation:'slide_from_right'}}>
 				<Stack.Screen name="Index" component={Index} />	
 				<Stack.Screen name="Auth" component={Auth} />			
 			</Stack.Navigator>

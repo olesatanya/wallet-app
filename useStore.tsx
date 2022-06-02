@@ -1,7 +1,9 @@
 import { useSelector, useDispatch}	from 'react-redux';
+import { ToastAndroid } from 'react-native';
 import Slice from './reducer';
 import errors from './config/errors.json' ;
 import * as Clipboard from 'expo-clipboard';
+
 
 export const now = () => Math.round(new Date().getTime()/1000) 
 export const N = (val:string|number, p:number=6) => isNaN(Number(val)) ? 0 : Math.round(Number(val) * 10 ** p) / (10 ** p)
@@ -11,11 +13,13 @@ export const NF = (num:number,p:number=2) => num.toLocaleString('en', {maximumFr
 export const getError = (code:number) => errors[code] || 'Unknown error';
 export const validateEmail = (email:string):boolean =>email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)!==null;
 export const validateUsername = (username:string):boolean => /^[a-zA-Z0-9]{3,20}$/.test(username);
-export const copyToClipboard = (text:string) => {
-	Clipboard.setString(text);
+export const copyToClipboard =  (text:string) => {
+	// Clipboard.setString(text);
 }
-export const showToast = (msg:string, type="error") => {
-	alert(msg)
+export const showToast = async (msg:string, msg2:string, type="error") => {
+	if(msg.length > 30 ) msg = msg.substring(0, 25)+"...";
+	if(msg2.length > 45 ) msg2 = msg2.substring(0, 40)+"...";
+
 }
 const useStore = ():UseStoreTypes => {
 	const G = useSelector((state:StoreTypes)=>state)
