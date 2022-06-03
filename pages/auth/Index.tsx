@@ -1,9 +1,7 @@
-import React from 'react';
 import { StyleSheet, TouchableOpacity, View, TextInput, Text } from 'react-native';
 import Layout from '../Layout'
 import {Colors, h, w, gstyle} from '../Theme'; 
 import Icons from '../../components/Icon'
-import { loadPlugin } from 'immer/dist/internal';
 
 export default function ({navigation} : any) {
 	const login = () => {
