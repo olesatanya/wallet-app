@@ -2,7 +2,7 @@ import React from "react";
 import {View, StyleSheet, TouchableOpacity, Text, Touchable} from "react-native"; 
 import Spinner from 'react-native-loading-spinner-overlay';
 import Icons from '../components/Icon'
-import {Colors, h, w, gstyle} from './Theme'; 
+import {Colors,  w, gstyle} from './Theme'; 
 import useStore from '../useStore';
 import { ScrollView } from "react-native-gesture-handler";
 

@@ -8,8 +8,13 @@ const initialState: StoreTypes = {
 	lang,
     L: locales[lang],
 	currentPage: '',
+	currentAccount: '',
+	currentAccountSeed: '',
+	currentAccountKey: '',
+	currentName: '',
 	updated: 0, 
-	loading: false
+	loading: false,
+	network: ''
 } 
 
 export default createSlice({

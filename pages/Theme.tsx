@@ -4,10 +4,11 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 export const Colors = {
 	Primary:		"rgb(51, 51, 51)",
 	Secondary:		"rgb(68, 68, 68)",
-	Third:		"rgb(42, 42, 42)",
+	Third:			"rgb(42, 42, 42)",
 	Dark:			"rgb(34, 34, 34)",
 	Light:			"#FFFFFF", 
 	LightDark:		"rgb(119, 119, 119)",
+	DarkGrey:		"rgb(24, 24, 24)",
 	Black:			"#000000"
 }
 

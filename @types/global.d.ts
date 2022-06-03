@@ -3,8 +3,6 @@ declare interface ServerResponse {
 	result?: any
 	error?: number
 }
-
-
 declare interface ResultType {
     err: string,
     result: string
@@ -16,6 +14,11 @@ interface StoreTypes {
 	updated:number
 	loading?:boolean
     currentPage: string
+    currentAccount: string
+    currentName: string
+    currentAccountSeed: string
+    currentAccountKey: string
+    network: string
 }
 interface UseStoreTypes extends StoreTypes {
     T(key:string, args?:{[key:string]:string|number}|string|number):string
