@@ -4,6 +4,7 @@ import Layout from '../Layout'
 import {Colors, gstyle} from '../Theme'; 
 import Icons from '../../components/Icon'
 import useStore, {copyToClipboard} from '../../useStore'
+import { TextInput } from 'react-native-gesture-handler';
 
 
 export default function ({navigation} : any) {
@@ -15,8 +16,11 @@ export default function ({navigation} : any) {
 		<Layout>
 			<View style={{padding:10,  display:'flex'}}>
 			 	<Text style={{color:Colors.Light, ...gstyle.t2, textAlign:'center'}}>Setting</Text>
-				<TouchableOpacity onPress={()=>{copyToClipboard('DYDQ3SSKmVF9eBmFfisLkUwXfcvLVM7AM1eeMy33iNgP'); }}>
-					<Text style={{color:Colors.LightDark, textAlign:'center', marginTop:10}}>{currentAccount + " ("+currentName+")"}</Text>
+				<TouchableOpacity onPress={()=>{copyToClipboard(currentAccount); }}>
+					<TextInput style={{color:Colors.LightDark, textAlign:'center', ...gstyle.t3}}>{currentName}</TextInput>
+				</TouchableOpacity>
+				<TouchableOpacity onPress={()=>{copyToClipboard(currentAccount); }}>
+					<Text style={{color:Colors.LightDark, textAlign:'center', marginTop:10}}>{currentAccount}</Text>
 				</TouchableOpacity>
 				<TouchableOpacity style={{...styles.settingcard, marginTop:10, ...styles.justify, alignContent:'center'}} onPress={(e) => {navigation?.navigate('Setting_Language')}}>
 					<View>

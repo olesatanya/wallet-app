@@ -4,8 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator,  } from '@react-navigation/native-stack';
 import {configureStore} from '@reduxjs/toolkit';
 import 'react-native-gesture-handler';	
+import './global'
 import Slice from './reducer'
-
 import Index from './pages/Index'
 import Auth from './pages/auth/Index'
 
