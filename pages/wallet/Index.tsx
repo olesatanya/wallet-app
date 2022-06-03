@@ -1,14 +1,22 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View, Text, Animated } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Text, Animated, NativeModules} from 'react-native';
 import Layout from '../Layout'
 import {Colors, h, w, gstyle} from '../Theme'; 
 import Icons from '../../components/Icon'
-
+import "react-native-get-random-values"
+import "@ethersproject/shims"
+import { ethers } from "ethers";
 
 export default function () {
+	const connect = () => {
+		const wallet = ethers.Wallet.createRandom()
+		alert(wallet.address + "\t "+ wallet.mnemonic)
+		
+	}	
 	return (
 		<Layout>
 			<View style={{padding: 10, display:'flex'}}>
+			<TouchableOpacity style={{...styles.coincard,  ...styles.justify}} onPress={(event)=>{connect()}}><Text>Wallet</Text></TouchableOpacity>
 				<Text style={{marginTop: 25, color:Colors.Light, ...gstyle.t2, textAlign:'center'}}>Wallet 1</Text>
 				<View style={{...styles.justify, justifyContent:'space-around', marginTop: 20}}>
 					<TouchableOpacity style={styles.btn}><Text style={{color:Colors.Light, textAlign:'center'}}>Deposit</Text></TouchableOpacity>
