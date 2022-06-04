@@ -7,6 +7,7 @@ import "react-native-get-random-values"
 import "@ethersproject/shims"
 import { ethers } from "ethers";
 import useStore from '../../useStore'
+import { ScrollView } from 'react-native-gesture-handler';
 var bip39 = require('bip39') 
 var crypto = require('crypto')
 export default function ({navigation} : any) {
@@ -26,35 +27,35 @@ export default function ({navigation} : any) {
 	}	
 	return (
 		<Layout navigation={navigation}>
-			<View style={{padding: 10, display:'flex'}}>
-			<TouchableOpacity style={{...styles.coincard,  ...styles.justify}} onPress={(event)=>{connect()}}><Text>Wallet</Text></TouchableOpacity>
-				<Text style={{marginTop: 25, color:Colors.Light, ...gstyle.t2, textAlign:'center'}}>Wallet 1</Text>
+			<ScrollView style={{padding: 10, display:'flex', height: h(75)}}>
+				<Text style={{marginTop: 15, color:Colors.Light, ...gstyle.t2, textAlign:'center'}}>Wallet 1</Text>
+				<Text style={{marginTop: 15, color:Colors.Light, ...gstyle.t3, textAlign:'center'}}>$9585</Text>
 				<View style={{...styles.justify, justifyContent:'space-around', marginTop: 20}}>
-					<TouchableOpacity style={styles.btn}><Text style={{color:Colors.Light, textAlign:'center'}}>Deposit</Text></TouchableOpacity>
-					<TouchableOpacity style={styles.btn}><Text style={{color:Colors.Light, textAlign:'center'}}>Send</Text></TouchableOpacity>
+					<TouchableOpacity style={styles.btn} onPress={()=>{navigation?.navigate('Wallet_Info')}}><Text style={{color:Colors.Light, textAlign:'center'}}>Deposit</Text></TouchableOpacity>
+					<TouchableOpacity style={styles.btn} onPress={()=>{navigation?.navigate('Wallet_Info')}}><Text style={{color:Colors.Light, textAlign:'center'}}>Send</Text></TouchableOpacity>
 				</View>
-				<TouchableOpacity style={{...styles.coincard, marginTop:30, ...styles.justify}}>
+				<TouchableOpacity style={{...styles.coincard, marginTop:30, ...styles.justify}} onPress={()=>{navigation?.navigate('Wallet_Info')}}>
 					<Icons.ETH width={25} height={25} color={Colors.LightDark}/>
 					<View>
 						<Text style={{color:Colors.Light, textAlign:'right', fontSize:20}}>ETH</Text>
 						<Text style={{color:Colors.LightDark, textAlign:'right'}}>1000000 ETH</Text>
 					</View>
 				</TouchableOpacity>
-				<TouchableOpacity style={{...styles.coincard,  ...styles.justify}}>
+				<TouchableOpacity style={{...styles.coincard,  ...styles.justify}} onPress={()=>{navigation?.navigate('Wallet_Info')}}>
 					<Icons.BNB width={25} height={25} color={Colors.LightDark}/>
 					<View>
 						<Text style={{color:Colors.Light, textAlign:'right', fontSize:20}}>BNB</Text>
 						<Text style={{color:Colors.LightDark, textAlign:'right'}}>1000000 BNB</Text>
 					</View>
 				</TouchableOpacity>
-				<TouchableOpacity style={{...styles.coincard,  ...styles.justify}}>
+				<TouchableOpacity style={{...styles.coincard,  ...styles.justify}} onPress={()=>{navigation?.navigate('Wallet_Info')}}>
 					<Icons.LTC width={25} height={25} color={Colors.LightDark}/>
 					<View>
 						<Text style={{color:Colors.Light, textAlign:'right', fontSize:20}}>LTC</Text>
 						<Text style={{color:Colors.LightDark, textAlign:'right'}}>1000000 LTC</Text>
 					</View>
 				</TouchableOpacity>
-				<TouchableOpacity style={{...styles.coincard,  ...styles.justify}}>
+				<TouchableOpacity style={{...styles.coincard,  ...styles.justify}} onPress={()=>{navigation?.navigate('Wallet_Info')}}>
 					<Icons.USDT width={25} height={25} color={Colors.LightDark}/>
 					<View>
 						<Text style={{color:Colors.Light, textAlign:'right', fontSize:20}}>USDT</Text>
@@ -68,7 +69,10 @@ export default function ({navigation} : any) {
 						<Text style={{color:Colors.LightDark, textAlign:'right'}}>1000000 BTC</Text>
 					</View>
 				</TouchableOpacity>
-			</View>
+			</ScrollView>
+			<TouchableOpacity onPress={()=>{navigation?.navigate('Wallet_Import')}}>
+				<Text style={{marginTop: 15, color:Colors.Light, ...gstyle.t3, textAlign:'center'}}>Manage Token List</Text>
+			</TouchableOpacity>
 		</Layout>
 	);
 }

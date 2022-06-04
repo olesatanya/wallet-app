@@ -21,7 +21,7 @@ const Stack = createNativeStackNavigator();
 const AppContainer = () => {
 	return (
 		<NavigationContainer>
-			<Stack.Navigator  initialRouteName={'AuthHome'}  screenOptions={{headerShown: false, animation:'slide_from_right'}}>
+			<Stack.Navigator  initialRouteName={'AuthLogin'}  screenOptions={{headerShown: false, animation:'slide_from_right'}}>
 				<Stack.Screen name="Index" component={Index} />	
 				<Stack.Screen name="AuthHome" component={AuthHome} />
 				<Stack.Screen name="AuthNew" component={AuthNew} />

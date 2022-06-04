@@ -14,7 +14,7 @@ export default function ({navigation} : any) {
 					<Icons.ETH width={50} height={50} color={Colors.LightDark}/>
 				</View>
 				<Text style={{...gstyle.t2, color:Colors.Light, textAlign:'center'}}>Enter your password</Text>
-				<TextInput placeholder='' style={styles.input}></TextInput>
+				<TextInput placeholder='' style={{...styles.input, textAlign:'center'}} secureTextEntry={true}></TextInput>
 			</View>
 			<View style={{padding:10}}>
 				<TouchableOpacity style = {styles.btn} onPress={()=>{login()}}><Text style={{color: Colors.Light, textAlign: 'center'}}>Unlock</Text></TouchableOpacity>
@@ -26,10 +26,10 @@ export default function ({navigation} : any) {
 const styles = StyleSheet.create({
 	input: {
 		borderRadius: 5,
-    	padding: 10,
+		padding: 10,
 		margin: 10,
 		marginTop: 20,
-    	backgroundColor: 'rgb(24, 24, 24)',
+		backgroundColor: 'rgb(24, 24, 24)',
 		borderWidth: 1,
 		borderColor: 'rgb(47, 47, 47)',
 		color:	Colors.Light,

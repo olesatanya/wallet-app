@@ -1,5 +1,5 @@
 import React from "react";
-import {View, StyleSheet, TouchableOpacity, Text, Touchable} from "react-native"; 
+import {View, StyleSheet, TouchableOpacity, Text, Animated} from "react-native"; 
 import Spinner from 'react-native-loading-spinner-overlay';
 import Icons from '../components/Icon'
 import {Colors,  w, gstyle, h} from './Theme'; 
@@ -12,11 +12,13 @@ const Layout = (props:any) => {
 	const [status, setStatus] = React.useState({
 		showMenu :  false
 	})
+
+
 	return (
 		<View style={{backgroundColor: Colors.Dark, minHeight:"100%"}}>
 			<View style={styles.header}>
 				<TouchableOpacity onPress={() => updateStatus({showMenu : true})}>
-					<Icons.Menu width={10} height={10} color={Colors.LightDark} />
+					<Icons.Menu width={15} height={15} color={Colors.LightDark} />
 				</TouchableOpacity>
 				<Text style={{color:'white'}}>Wallet (DSDF...ER34)</Text>
 			</View>

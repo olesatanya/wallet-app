@@ -4,9 +4,15 @@ import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/
 
 import { Colors, w } from './Theme';
 import Icons from '../components/Icon'
-import Wallet from './wallet/Index'
 import Collection from './collection/Index'
 import Recent from './recent/Index'
+
+import Wallet from './wallet/Index'
+import WalletTokenImport from './wallet/TokenImport'
+import WalletInfo from './wallet/TokenInfo'
+import WalletSend from './wallet/TokenSend'
+import WalletDeposit from './wallet/TokenDeposit'
+import WalletConfirm from './wallet/TokenConfirm'
 
 import Setting from './setting/Index'
 import Setting_Language from './setting/Language'
@@ -28,6 +34,11 @@ const WalletStackNavigator = () => {
 	return (
 			<WalletStack.Navigator  screenOptions={{headerShown: false, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS}} initialRouteName={'Wallet_Home'}>
 				<WalletStack.Screen name="Wallet_Home" component={Wallet} />
+				<WalletStack.Screen name="Wallet_Import" component={WalletTokenImport} />
+				<WalletStack.Screen name="Wallet_Info" component={WalletInfo} />
+				<WalletStack.Screen name="Wallet_Send" component={WalletSend} />
+				<WalletStack.Screen name="Wallet_Deposit" component={WalletDeposit} />
+				<WalletStack.Screen name="Wallet_Confirm" component={WalletConfirm} />
 			</WalletStack.Navigator>
 	)
 }
