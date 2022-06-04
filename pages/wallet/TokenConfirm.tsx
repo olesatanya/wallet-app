@@ -3,8 +3,6 @@ import { StyleSheet, TouchableOpacity, View, Text, TextInput, Image} from 'react
 import Layout from '../Layout'
 import {Colors, h, w, gstyle} from '../Theme'; 
 import Icons from '../../components/Icon'
-import QRcode from '../../components/qrcode'
-
 
 export default function ({navigation} : any) {
 	const [status, setStatus] = React.useState({

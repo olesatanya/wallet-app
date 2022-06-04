@@ -3,7 +3,6 @@ import { StyleSheet, TouchableOpacity, View, Text, TextInput, Switch} from 'reac
 import Layout from '../Layout'
 import {Colors, h, w, gstyle} from '../Theme'; 
 import Icons from '../../components/Icon'
-import Icon from '../../components/Icon';
 
 export default function ({navigation} : any) {
 	const [status, setStatus] = React.useState({
