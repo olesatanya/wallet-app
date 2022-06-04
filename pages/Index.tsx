@@ -18,7 +18,6 @@ import Setting_ExportInfo from './setting/Exportinfo'
 import Setting_Seed from './setting/Seed'
 import Setting_Remove from './setting/Remove'
 
-import Walletc from '../library/walletconnect'
 const Tab = createMaterialBottomTabNavigator();
 const WalletStack = createStackNavigator();
 const CollectionStack = createStackNavigator();
@@ -35,7 +34,7 @@ const WalletStackNavigator = () => {
 const CollectionStackNavigator = () => {
 	return (
 			<CollectionStack.Navigator  screenOptions={{headerShown: false, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS}} initialRouteName={'Collection_Home'}>
-				<CollectionStack.Screen name="Collection_Home" component={Walletc} />
+				<CollectionStack.Screen name="Collection_Home" component={Collection} />
 			</CollectionStack.Navigator>
 	)
 }

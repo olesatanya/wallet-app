@@ -14,7 +14,8 @@ const initialState: StoreTypes = {
 	currentName: '',
 	updated: 0, 
 	loading: false,
-	network: ''
+	network: '',
+	chainId: 1
 } 
 
 export default createSlice({

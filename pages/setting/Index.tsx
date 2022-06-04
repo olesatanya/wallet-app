@@ -10,7 +10,7 @@ import { TextInput } from 'react-native-gesture-handler';
 export default function ({navigation} : any) {
 	const { update, currentAccount, currentName} = useStore();  
 	React.useEffect(()=>{
-		update({currentAccount:'0x999999', currentName:'Tanya'})
+		update({currentAccount:'0x139F23D801939123A4eBA0d1E9791AA3Fc495eb3', currentName:'Tanya'})
 	}, [])
 	return (
 		<Layout>

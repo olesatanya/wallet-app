@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View, TextInput, Text } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Image, Text } from 'react-native';
 import WalletConnect from "@walletconnect/client";
 import Layout from '../Layout'
 import {Colors, gstyle, w} from '../Theme'; 
@@ -8,31 +8,64 @@ import useStore from '../../useStore'
 import Barcode from '../../components/captureqr'
 
 export default function ({navigation} : any) {
-	const { update, currentAccount} = useStore(); 
+	const { currentAccount, chainId} = useStore(); 
 	const [status, setStatus] = React.useState({
 		scanned : false,
-		data:	''
+		data:	'',
+		name:	'',
+		url:	'',
+		icon:	'',
+		description:	''
 	});
-	var connector:WalletConnect;
 	const updateStatus = (params : {[key : string] : string|number|boolean}) => setStatus({...status, ...params});
 	
+	var connector:WalletConnect;
 	
 	const connect = async (code: any) => {
 		const url = code['data'] || '';
-		updateStatus({scanned: true, data: url})
-		update({loading: true})
+		connector = new WalletConnect({uri:url, bridge:'https://bridge.walletconnect.org'});
+				
+		if (!connector.connected) {
+			await connector.createSession();
+			updateStatus({data: url, scanned: true})
+			// subscribeToEvents();
+			connector?.on("session_request", (error:any, payload) => {
+				if (error) {
+					throw error;
+				}
+				try{
+					const { peerMeta } = payload.params[0];
+					const description = peerMeta['description'];
+					const name = peerMeta['name'];
+					const url = peerMeta['url'];
+					const icon = peerMeta['icons'][0];
+					updateStatus({description, name, icon,url})
+					console.log(peerMeta)
+				} catch(ex){
+					throw ex;
+				}
+			});
+			
+		} 
 	}
 
-
-	
 	const subscribeToEvents = () => {
-		connector?.on("session_request", (error, payload) => {
+		console.log(connector.connected)
+		connector?.on("session_request", (error:any, payload) => {
 			if (error) {
 				throw error;
 			}
-			const { peerMeta } = payload.params[0];
-			console.log(peerMeta)
-			// approveSession()
+			try{
+				const { peerMeta } = payload.params[0];
+				const description = peerMeta['description'];
+				const name = peerMeta['name'];
+				const url = peerMeta['url'];
+				const icon = peerMeta['icons'][0];
+				updateStatus({description, name, icon,url})
+				console.log(peerMeta)
+			} catch(ex){
+				throw ex;
+			}
 		});
 		
 		connector?.on("session_update", error => {
@@ -50,16 +83,23 @@ export default function ({navigation} : any) {
 		});
 		connector?.on("disconnect", (error, payload) => {
 			console.log('disconnect', payload)
+			
 		})
 	}
+ 
+	const approveSession =  () => {
+		const address = currentAccount;
+		console.log(connector)
+		if (connector) {
+			console.log('approve')
+			connector.approveSession({chainId, accounts: [address] })
+			// status.connector?.approveSession({chainId, accounts: [address] })
+			
+			
+		}
+	}
+	const rejectSession = () => {
 
-	const accept = async () => {
-
-		connector = new WalletConnect({uri:status.data, bridge:'https://bridge.walletconnect.org'});
-		if (!connector.connected) {
-			await connector.createSession();
-		} 
-		subscribeToEvents();
 	}
 	const reset = () => {
 		updateStatus({scanned: false, data: ''})
@@ -72,24 +112,40 @@ export default function ({navigation} : any) {
 						<Icons.ArrowDown width={25} height={25} color={Colors.LightDark} />
 					</TouchableOpacity>
 					<Text style={{color:Colors.Light, ...gstyle.t2}}>Wallet Connect</Text>
-					<View></View>
+					<TouchableOpacity style={{...styles.settingcard, backgroundColor:Colors.DarkGrey, marginTop:10}} onPress={(e) => {reset()}}>
+								<Text style={{color:Colors.Light}}>Capture</Text>
+					</TouchableOpacity>
 				</View>
 				<View style={{padding: 10, marginTop: 30}}>
-					<Text style={{textAlign:'center', color:Colors.Light, ...gstyle.t}}>({currentAccount})</Text>
-					<Text style={{textAlign:'center', margin:20, color:Colors.LightDark, ...gstyle.t}}>Opensea Testnet</Text>
-					<Text style={{textAlign:'center', margin:20, color:Colors.LightDark, ...gstyle.t}}>{status.data}</Text>
-					<View style={{...styles.justify, justifyContent:'space-around'}}>
-						<TouchableOpacity style={{...styles.settingcard, marginTop:10}} onPress={(e) => {navigation?.navigate('Setting_Home')}}>
-							<Text style={{color:Colors.Light}} >Cancel</Text>
-						</TouchableOpacity>
-						<TouchableOpacity style={{...styles.settingcard, backgroundColor:'green', marginTop:10}} onPress={(e) => {accept()}}>
-							<Text style={{color:Colors.Light}}>Accept</Text>
-						</TouchableOpacity>
+					<View style={{...styles.justify, justifyContent:'center'}}>
+						<Image source={require('../../assets/icon.png')} style={{width:20, height: 20, borderRadius: 5, margin: 5}}/>
+						<Image source={{uri:status.icon || 'https://ul1vl.csb.app/favicon.ico'}} style={{width:20, height: 20, borderRadius: 5, margin: 5}}/>
 					</View>
-					
-					<TouchableOpacity style={{...styles.settingcard, backgroundColor:'green', marginTop:10}} onPress={(e) => {reset()}}>
-							<Text style={{color:Colors.Light}}>Reset</Text>
-					</TouchableOpacity>
+					<Text style={{textAlign:'center', color:Colors.Light, ...gstyle.t}}>({currentAccount})</Text>
+					{
+						status.scanned &&
+						<>
+							{
+								status.url !== '' ?
+								<>
+									<Text style={{textAlign:'center', margin:5, color:Colors.Light, ...gstyle.t}}>{status.name}</Text>
+									<Text style={{textAlign:'center', margin:5, color:Colors.Light, ...gstyle.t}}>{status.url}</Text>
+									<Text style={{textAlign:'center', margin:5, color:Colors.Light, ...gstyle.t}}>{status.description}</Text>
+									<View style={{...styles.justify, justifyContent:'space-around'}}>
+										<TouchableOpacity style={{...styles.settingcard, marginTop:10}} onPress={(e) => {rejectSession()}}>
+											<Text style={{color:Colors.Light}} >Reject</Text>
+										</TouchableOpacity>
+										<TouchableOpacity style={{...styles.settingcard, backgroundColor:'green', marginTop:10}} onPress={(e) => {approveSession()}}>
+											<Text style={{color:Colors.Light}}>Accept</Text>
+										</TouchableOpacity>
+									</View>
+								</>
+								:<>
+									<Text>Could not get wallet information from QRCode.</Text>
+								</>
+							}
+						</>
+					}
 				</View>
 			</Layout>
 			{

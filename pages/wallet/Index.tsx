@@ -6,12 +6,17 @@ import Icons from '../../components/Icon'
 import "react-native-get-random-values"
 import "@ethersproject/shims"
 import { ethers } from "ethers";
-
+var bip39 = require('bip39') 
+var crypto = require('crypto')
 export default function () {
-	const connect = () => {
-		const wallet = ethers.Wallet.createRandom()
-		alert(wallet.address + "\t "+ wallet.mnemonic)
-		
+	const connect = async () => {
+		// const wallet = ethers.Wallet.createRandom()
+		// alert(wallet.address + "\t "+ wallet.mnemonic)
+		var  randomBytes = crypto.randomBytes(16) 
+		var mnemonic = bip39.entropyToMnemonic(randomBytes.toString('hex')) 
+		console.log(mnemonic)
+		const wallet = ethers.Wallet.fromMnemonic(mnemonic)
+		console.log(wallet.address, wallet.privateKey)
 	}	
 	return (
 		<Layout>

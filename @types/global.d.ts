@@ -19,6 +19,7 @@ interface StoreTypes {
     currentAccountSeed: string
     currentAccountKey: string
     network: string
+    chainId: number
 }
 interface UseStoreTypes extends StoreTypes {
     T(key:string, args?:{[key:string]:string|number}|string|number):string
