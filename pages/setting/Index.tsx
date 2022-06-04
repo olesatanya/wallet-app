@@ -13,7 +13,7 @@ export default function ({navigation} : any) {
 	// 	update({currentAccount:'0x139F23D801939123A4eBA0d1E9791AA3Fc495eb3', currentName:'Tanya'})
 	// }, [])
 	return (
-		<Layout>
+		<Layout navigation={navigation}>
 			<View style={{padding:10,  display:'flex'}}>
 			 	<Text style={{color:Colors.Light, ...gstyle.t2, textAlign:'center'}}>Setting</Text>
 				<TouchableOpacity onPress={()=>{copyToClipboard(currentAccount); }}>

@@ -15,7 +15,7 @@ export default function ({navigation} : any) {
 	const password = '123456';
 
 	return (
-		<Layout>
+		<Layout navigation={navigation}>
 			<View style={styles.justify}>
 				<TouchableOpacity style={{transform:[{rotate:'90deg'}],  width:30, height:20}} onPress={(e) => {navigation?.navigate('Setting_Home')}}>
 					<Icons.ArrowDown width={25} height={25} color={Colors.LightDark} />

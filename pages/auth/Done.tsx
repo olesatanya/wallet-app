@@ -46,19 +46,5 @@ const styles = StyleSheet.create({
 		marginRight: 'auto',
 		width: w(90),
 		margin: 10
-	},
-	input: {
-		borderRadius: 5,
-    	padding: 5,
-		paddingLeft: 20,
-		margin:5,
-		marginLeft: 'auto',
-		marginRight:'auto',
-    	backgroundColor: 'rgb(24, 24, 24)',
-		borderWidth: 1,
-		borderColor: 'rgb(47, 47, 47)',
-		color:	Colors.Light,
-		...gstyle.t3,
-		width: w(90)
-	},
+	}
 })

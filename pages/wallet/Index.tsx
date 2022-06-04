@@ -9,7 +9,7 @@ import { ethers } from "ethers";
 import useStore from '../../useStore'
 var bip39 = require('bip39') 
 var crypto = require('crypto')
-export default function () {
+export default function ({navigation} : any) {
 	const { currentAccount, chainId, update} = useStore(); 
 	
 	const connect = async () => {
@@ -25,7 +25,7 @@ export default function () {
 		// update({currentAccount:new Date().getTime()+" ."})
 	}	
 	return (
-		<Layout>
+		<Layout navigation={navigation}>
 			<View style={{padding: 10, display:'flex'}}>
 			<TouchableOpacity style={{...styles.coincard,  ...styles.justify}} onPress={(event)=>{connect()}}><Text>Wallet</Text></TouchableOpacity>
 				<Text style={{marginTop: 25, color:Colors.Light, ...gstyle.t2, textAlign:'center'}}>Wallet 1</Text>

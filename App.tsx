@@ -13,6 +13,7 @@ import AuthShowphrase from './pages/auth/ShowPhrase'
 import AuthConfirmPhrase from './pages/auth/ConfirmPhrase'
 import AuthImport from './pages/auth/Import'
 import AuthDone from './pages/auth/Done'
+import AuthLogin from './pages/auth/Login'
 
 const store = configureStore({reducer: Slice.reducer});
 const Stack = createNativeStackNavigator();
@@ -28,6 +29,7 @@ const AppContainer = () => {
 				<Stack.Screen name="AuthConfirmphrase" component={AuthConfirmPhrase} />
 				<Stack.Screen name="AuthImport" component={AuthImport} />
 				<Stack.Screen name="AuthDone" component={AuthDone} />
+				<Stack.Screen name="AuthLogin" component={AuthLogin} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	)

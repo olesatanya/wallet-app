@@ -21,7 +21,7 @@ export default function ({navigation} : any) {
 		{name:'Name 8', address: '0xE71E33e78C5d4764549123Ec4B770eF66FbD2398'}
 	];
 	return (
-		<Layout>
+		<Layout navigation={navigation}>
 			<View style={styles.justify}>
 				<TouchableOpacity style={{transform:[{rotate:'90deg'}],  width:30, height:20}} onPress={(e) => {navigation?.navigate('Setting_Home')}}>
 					<Icons.ArrowDown width={25} height={25} color={Colors.LightDark} />

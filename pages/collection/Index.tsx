@@ -5,9 +5,9 @@ import {Colors, h, w, gstyle} from '../Theme';
 import Icons from '../../components/Icon'
 
 
-export default function () {
+export default function ({navigation} : any) {
 	return (
-		<Layout>
+		<Layout navigation={navigation}>
 			<View style={{padding: 20, display:'flex'}}>
 			  	<Text style={{marginTop: 10, color:Colors.Light, ...gstyle.t2, textAlign:'center'}}>Your Collectibles</Text>
 			</View>
