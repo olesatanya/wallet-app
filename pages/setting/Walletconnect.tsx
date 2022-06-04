@@ -8,7 +8,7 @@ import useStore from '../../useStore'
 import Barcode from '../../components/captureqr'
 
 export default function ({navigation} : any) {
-	const { currentAccount, chainId} = useStore(); 
+	const { currentAccount, chainId, update} = useStore(); 
 	const [status, setStatus] = React.useState({
 		scanned : false,
 		data:	'',
@@ -22,6 +22,7 @@ export default function ({navigation} : any) {
 	var connector:WalletConnect;
 	
 	const connect = async (code: any) => {
+		update({loading: true})
 		const url = code['data'] || '';
 		connector = new WalletConnect({uri:url, bridge:'https://bridge.walletconnect.org'});
 				
@@ -44,6 +45,7 @@ export default function ({navigation} : any) {
 				} catch(ex){
 					throw ex;
 				}
+				update({loading: false})
 			});
 			
 		} 

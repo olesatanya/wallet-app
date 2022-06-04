@@ -7,7 +7,12 @@ import 'react-native-gesture-handler';
 import './global'
 import Slice from './reducer'
 import Index from './pages/Index'
-import Auth from './pages/auth/Index'
+import AuthHome from './pages/auth/Home'
+import AuthNew from './pages/auth/New'
+import AuthShowphrase from './pages/auth/ShowPhrase'
+import AuthConfirmPhrase from './pages/auth/ConfirmPhrase'
+import AuthImport from './pages/auth/Import'
+import AuthDone from './pages/auth/Done'
 
 const store = configureStore({reducer: Slice.reducer});
 const Stack = createNativeStackNavigator();
@@ -15,9 +20,14 @@ const Stack = createNativeStackNavigator();
 const AppContainer = () => {
 	return (
 		<NavigationContainer>
-			<Stack.Navigator  initialRouteName={'Auth'}  screenOptions={{headerShown: false, animation:'slide_from_right'}}>
+			<Stack.Navigator  initialRouteName={'AuthHome'}  screenOptions={{headerShown: false, animation:'slide_from_right'}}>
 				<Stack.Screen name="Index" component={Index} />	
-				<Stack.Screen name="Auth" component={Auth} />			
+				<Stack.Screen name="AuthHome" component={AuthHome} />
+				<Stack.Screen name="AuthNew" component={AuthNew} />
+				<Stack.Screen name="AuthShowphrase" component={AuthShowphrase} />
+				<Stack.Screen name="AuthConfirmphrase" component={AuthConfirmPhrase} />
+				<Stack.Screen name="AuthImport" component={AuthImport} />
+				<Stack.Screen name="AuthDone" component={AuthDone} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	)

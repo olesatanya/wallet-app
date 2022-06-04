@@ -13,7 +13,6 @@ interface StoreTypes {
     L: {[lang:string]:any}
 	updated:number
 	loading?:boolean
-    currentPage: string
     currentAccount: string
     currentName: string
     currentAccountSeed: string

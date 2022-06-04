@@ -6,17 +6,23 @@ import Icons from '../../components/Icon'
 import "react-native-get-random-values"
 import "@ethersproject/shims"
 import { ethers } from "ethers";
+import useStore from '../../useStore'
 var bip39 = require('bip39') 
 var crypto = require('crypto')
 export default function () {
+	const { currentAccount, chainId, update} = useStore(); 
+	
 	const connect = async () => {
+		update({currentAccount: 'hsr934'})
+		
 		// const wallet = ethers.Wallet.createRandom()
 		// alert(wallet.address + "\t "+ wallet.mnemonic)
-		var  randomBytes = crypto.randomBytes(16) 
-		var mnemonic = bip39.entropyToMnemonic(randomBytes.toString('hex')) 
-		console.log(mnemonic)
-		const wallet = ethers.Wallet.fromMnemonic(mnemonic)
-		console.log(wallet.address, wallet.privateKey)
+		// var  randomBytes = crypto.randomBytes(16) 
+		// var mnemonic = bip39.entropyToMnemonic(randomBytes.toString('hex')) 
+		// console.log(mnemonic)
+		// const wallet = ethers.Wallet.fromMnemonic(mnemonic)
+		// console.log(wallet.address, wallet.privateKey)
+		// update({currentAccount:new Date().getTime()+" ."})
 	}	
 	return (
 		<Layout>
