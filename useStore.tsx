@@ -1,13 +1,11 @@
 import { useSelector, useDispatch}	from 'react-redux';
-import { ToastAndroid } from 'react-native';
 import Slice from './reducer';
 import errors from './config/errors.json' ;
 import * as Clipboard from 'expo-clipboard';
-import { JSHmac, JSHash, CONSTANTS } from "react-native-hash";
+import { JSHmac,  CONSTANTS } from "react-native-hash";
 
 export const now = () => Math.round(new Date().getTime()/1000) 
 export const N = (val:string|number, p:number=6) => isNaN(Number(val)) ? 0 : Math.round(Number(val) * 10 ** p) / (10 ** p)
-
 export const NF = (num:number,p:number=2) => num.toLocaleString('en', {maximumFractionDigits:p});
 
 export const getError = (code:number) => errors[code] || 'Unknown error';
@@ -27,7 +25,6 @@ export const hmac = async (plain:string):Promise<string> => {
 	}
 	return ""
 }
-
 
 export const showToast = async (msg:string, msg2:string, type="error") => {
 	if(msg.length > 30 ) msg = msg.substring(0, 25)+"...";

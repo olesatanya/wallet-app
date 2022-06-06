@@ -23,6 +23,7 @@ interface StoreTypes {
 interface UseStoreTypes extends StoreTypes {
     T(key:string, args?:{[key:string]:string|number}|string|number):string
     update(payload:{[key:string]:any})
+    call(url:string, params?:any):Promise<ServerResponse|null> 
 }
 
 declare module '@env' {
