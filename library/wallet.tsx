@@ -6,17 +6,18 @@ import { Contract, Wallet } from "ethers";
 const ethers = require('ethers');
 var bip39 = require('bip39');
 var crypto = require('crypto');
+
 import ABI from '../config/abi.json'
 import {NF} from '../useStore'
 
 export const createMnemonic = async () => {
-	var  randomBytes = crypto.randomBytes(16) 
+	var randomBytes = crypto.randomBytes(16) 
 	var mnemonic = await bip39.entropyToMnemonic(randomBytes.toString('hex'))
 	return mnemonic;
 }
 
 export const fromMnemonic = async (mnemonic: string) => {
-	const wallet = ethers.Wallet.fromMnemonic(mnemonic);
+	const wallet = await ethers.Wallet.fromMnemonic(mnemonic);
 	return {address: wallet.address, privatekey: wallet.privateKey, publickey:wallet.publicKey}
 }
 
@@ -65,6 +66,7 @@ export const sendTransaction = async (nativeToken: boolean, wallet: Wallet, to: 
 export const toBigNum = (value: string,  d:number) => {
 	return ethers.utils.parseUnits(Number(value).toFixed(d), d);
 }
+
 export const fromBigNum = (value: string, d: number) => {
 	return parseFloat(ethers.utils.formatUnits(value, d));
 }
