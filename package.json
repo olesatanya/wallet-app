@@ -40,6 +40,7 @@
     "react-native-dotenv": "^3.3.1",
     "react-native-gesture-handler": "~2.1.0",
     "react-native-get-random-values": "^1.8.0",
+    "react-native-hash": "^2.0.3",
     "react-native-loading-spinner-overlay": "^3.0.0",
     "react-native-paper": "^4.12.1",
     "react-native-responsive-screen": "^1.4.2",

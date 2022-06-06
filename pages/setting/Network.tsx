@@ -43,7 +43,6 @@ export default function ({navigation} : any) {
 						</TouchableOpacity>
 					))
 				}
-			
 			</View>
 		</Layout>
 	);

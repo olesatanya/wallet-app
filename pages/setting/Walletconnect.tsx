@@ -71,6 +71,7 @@ export default function ({navigation} : any) {
 		});
 		
 		connector?.on("session_update", error => {
+			console.log("EVENT", "session_update");
 			if (error) {
 				throw error;
 			}
@@ -84,10 +85,10 @@ export default function ({navigation} : any) {
 			console.log('connect', payload)
 		});
 		connector?.on("disconnect", (error, payload) => {
-			console.log('disconnect', payload)
-			
+			console.log('disconnect', payload)	
 		})
 	}
+
  
 	const approveSession =  () => {
 		const address = currentAccount;
@@ -95,14 +96,31 @@ export default function ({navigation} : any) {
 		if (connector) {
 			console.log('approve')
 			connector.approveSession({chainId, accounts: [address] })
-			// status.connector?.approveSession({chainId, accounts: [address] })
-			
-			
 		}
 	}
 	const rejectSession = () => {
-
+		connector.rejectSession();
 	}
+
+	
+	const approveRequest = ()=> {
+		console.log('approve request')
+		connector.approveRequest({
+		  id: 1,
+		  result: "0x41791102999c339c844880b23950704cc43aa840f3739e365323cda4dfa89e7a"
+		});
+	  }
+	
+	const rejectRequest = async ()=> {
+		connector.rejectRequest({
+			id: 1,                                 
+			error: {
+				code: 3,
+				message: "OPTIONAL_ERROR_MESSAGE"    
+			}
+		});
+	}
+
 	const reset = () => {
 		updateStatus({scanned: false, data: ''})
 	}

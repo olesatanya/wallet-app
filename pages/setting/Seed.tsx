@@ -34,13 +34,12 @@ export default function ({navigation} : any) {
 							<Text style={{textAlign:'center', color:'rgb(255, 220, 98)', ...gstyle.t3}}>Do not share your private key!</Text>
 							<Text style={{textAlign:'center', margin:20, color:'rgb(255, 220, 98)', ...gstyle.t}}>If someone has your private key they will have full control of your wallet.</Text>
 							<TextInput style={styles.input} textContentType='password' placeholder='Password' placeholderTextColor={Colors.LightDark} secureTextEntry></TextInput>
-						
 							<View style={{...styles.justify, justifyContent:'space-around'}}>
 								<TouchableOpacity style={{...styles.settingcard, marginTop:10}} onPress={(e) => {navigation?.navigate('Setting_Home')}}>
 									<Text style={{color:Colors.Light, textAlign:'center'}}>Cancel</Text>
 								</TouchableOpacity>
 								<TouchableOpacity style={{...styles.settingcard, backgroundColor:'#338834', marginTop:10}} onPress={(e) => {updateStatus({authchecked: true})}}>
-										<Text style={{color:Colors.Light, textAlign:'center'}} >Next</Text>
+									<Text style={{color:Colors.Light, textAlign:'center'}} >Next</Text>
 								</TouchableOpacity>
 							</View>
 						</>

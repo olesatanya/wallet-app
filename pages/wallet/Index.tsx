@@ -1,30 +1,11 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View, Text, Animated, NativeModules} from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Text, ScrollView} from 'react-native';
 import Layout from '../Layout'
 import {Colors, h, w, gstyle} from '../Theme'; 
 import Icons from '../../components/Icon'
-import "react-native-get-random-values"
-import "@ethersproject/shims"
-import { ethers } from "ethers";
 import useStore from '../../useStore'
-import { ScrollView } from 'react-native-gesture-handler';
-var bip39 = require('bip39') 
-var crypto = require('crypto')
 export default function ({navigation} : any) {
-	const { currentAccount, chainId, update} = useStore(); 
 	
-	const connect = async () => {
-		update({currentAccount: 'hsr934'})
-		
-		// const wallet = ethers.Wallet.createRandom()
-		// alert(wallet.address + "\t "+ wallet.mnemonic)
-		// var  randomBytes = crypto.randomBytes(16) 
-		// var mnemonic = bip39.entropyToMnemonic(randomBytes.toString('hex')) 
-		// console.log(mnemonic)
-		// const wallet = ethers.Wallet.fromMnemonic(mnemonic)
-		// console.log(wallet.address, wallet.privateKey)
-		// update({currentAccount:new Date().getTime()+" ."})
-	}	
 	return (
 		<Layout navigation={navigation}>
 			<ScrollView style={{padding: 10, display:'flex', height: h(75)}}>

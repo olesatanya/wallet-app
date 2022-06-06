@@ -1,11 +1,11 @@
 
-// import axios from 'axios'
+import axios from 'axios'
 
-// export const callRpc = async(params?:any)=> {
-// 	const response = await axios.post(config.rpc, params, {headers: {'Content-Type': 'application/json'}})
-// 	if (response && response.data) return response.data
-// 	return null
-// }
+export const callRpc = async(params?:any)=> {
+	const response = await axios.post(config.rpc, params, {headers: {'Content-Type': 'application/json'}})
+	if (response && response.data) return response.data
+	return null
+}
 
 // const checkNativeTokenBalances = async (as: string[]) => {
 // 	try {

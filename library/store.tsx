@@ -55,6 +55,7 @@ const getAllKeys = async () => {
 		return [];
 	}
 }
+
 const getMultiData = async (keys: string[])	=> {
 	try {
 		const values = await AsyncStorage.multiGet(keys)

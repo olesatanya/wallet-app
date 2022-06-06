@@ -12,7 +12,6 @@ export default function () {
      if (!connector.connected) {
 		  await connector.createSession();
 		} 
-    
     subscribeToEvents();
   };
 

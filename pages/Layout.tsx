@@ -1,10 +1,11 @@
 import React from "react";
-import {View, StyleSheet, TouchableOpacity, Text, Animated} from "react-native"; 
+import {View, StyleSheet, TouchableOpacity, Text, ScrollView} from "react-native"; 
 import Spinner from 'react-native-loading-spinner-overlay';
 import Icons from '../components/Icon'
 import {Colors,  w, gstyle, h} from './Theme'; 
-import useStore from '../useStore';
-import { ScrollView } from "react-native-gesture-handler";
+import useStore, {hmac} from '../useStore';
+import {createMnemonic, createWallet, fromMnemonic} from '../library/wallet'
+
 
 const Layout = (props:any) => {
 	const {loading} = useStore();
@@ -12,6 +13,7 @@ const Layout = (props:any) => {
 	const [status, setStatus] = React.useState({
 		showMenu :  false
 	})
+
 
 
 	return (
@@ -48,7 +50,7 @@ const Layout = (props:any) => {
 								<Text style={{color:Colors.Light, fontSize:12}}>Wallet 1 (0xDF...DFD)</Text> 
 							</TouchableOpacity>
 							<View style={{borderTopColor:Colors.LightDark, borderTopWidth:1}}></View>
-							<TouchableOpacity style={{...styles.menu}} onPress = {(e) => {}}>
+							<TouchableOpacity style={{...styles.menu}} onPress = {async (e) => {alert(await hmac('hello'))}}>
 								<Text style={{color:Colors.Light, fontSize:12}}>Add / Connect Wallet</Text> 
 							</TouchableOpacity>
 							<TouchableOpacity style={styles.menu} onPress = {(e) => {updateStatus({showMenu: false}); props.navigation?.navigate('AuthLogin')}}>

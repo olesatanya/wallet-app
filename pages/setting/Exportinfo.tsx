@@ -37,7 +37,7 @@ export default function ({navigation} : any) {
 						
 							<View style={{...styles.justify, justifyContent:'space-around'}}>
 								<TouchableOpacity style={{...styles.settingcard, marginTop:10}} onPress={(e) => {navigation?.navigate('Setting_Home')}}>
-										<Text style={{color:Colors.Light, textAlign:'center'}}>Cancel</Text>
+									<Text style={{color:Colors.Light, textAlign:'center'}}>Cancel</Text>
 								</TouchableOpacity>
 								<TouchableOpacity style={{...styles.settingcard, backgroundColor:'#338834', marginTop:10}} onPress={(e) => {updateStatus({authchecked: true})}}>
 										<Text style={{color:Colors.Light, textAlign:'center'}} >Next</Text>
@@ -63,7 +63,6 @@ export default function ({navigation} : any) {
 						</>
 					)
 				}
-			
 			</View>
 		</Layout>
 	);
