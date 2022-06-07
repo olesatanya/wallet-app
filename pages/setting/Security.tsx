@@ -29,10 +29,10 @@ export default function ({navigation} : any) {
 				<TextInput style={styles.input} textContentType='password' secureTextEntry placeholder='Confirm new password' placeholderTextColor={Colors.LightDark}></TextInput>
 				<View style={{...styles.justify, justifyContent:'space-around'}}>
 					<TouchableOpacity style={{...styles.settingcard, marginTop:10}} onPress={(e) => {navigation?.navigate('Setting_Home')}}>
-							<Text style={{color:Colors.Light}} >Cancel</Text>
+						<Text style={{color:Colors.Light}} >Cancel</Text>
 					</TouchableOpacity>
 					<TouchableOpacity style={{...styles.settingcard, backgroundColor:'#338834', marginTop:10}} onPress={(e) => {}}>
-							<Text style={{color:Colors.Light}} >Save</Text>
+						<Text style={{color:Colors.Light}} >Save</Text>
 					</TouchableOpacity>
 				</View>
 			</View>

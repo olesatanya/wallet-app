@@ -13,9 +13,7 @@ export default function ({navigation} : any) {
 			<View style={{padding:10, height:h(90), display:'flex', flexDirection:'column', justifyContent:'center', flexWrap:'wrap', alignItems:'center', alignContent:'center'}}>
 				<Text style={{...gstyle.t2, color:Colors.Light, textAlign:'center'}}>Confirm  Recovery Phrase</Text>
 				<Text style={{...gstyle.t, marginTop:20, color:'#FFDC62', width:w(90), textAlign:'center'}}></Text>
-				<TextInput style={{...styles.input, padding: 20}} multiline editable = {false}>
-				 
-				</TextInput>
+				<TextInput style={{...styles.input, padding: 20}} multiline editable = {false}></TextInput>
 				<View style={styles.row}>
 					<TouchableOpacity style={styles.seed} onPress={()=>{alert('d')}}><Text style={{color: Colors.Light}}>apple</Text></TouchableOpacity>
 					<TouchableOpacity style={styles.seed} onPress={()=>{alert('d')}}><Text style={{color: Colors.Light}}>apple</Text></TouchableOpacity>

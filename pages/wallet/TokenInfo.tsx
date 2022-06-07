@@ -32,17 +32,17 @@ export default function ({navigation} : any) {
 			</View>
 			<View style={{padding: 10}}>
 				<TouchableOpacity style={{...styles.coincard,  ...styles.justify}} onPress={()=>{navigation?.navigate('Wallet_Send')}}>
-						<View style={{...styles.justify}}>
-							<Icons.ArrowBottom width={25} height={25} color={Colors.LightDark}/>
-							<View style={{marginLeft: 10}}>
-								<Text style={{color:Colors.Light, textAlign:'left', ...gstyle.t3}}>Receive</Text>
-								<Text style={{color:Colors.LightDark, textAlign:'left', ...gstyle.t0}}>From 0x39349349</Text>
-							</View>
+					<View style={{...styles.justify}}>
+						<Icons.ArrowBottom width={25} height={25} color={Colors.LightDark}/>
+						<View style={{marginLeft: 10}}>
+							<Text style={{color:Colors.Light, textAlign:'left', ...gstyle.t3}}>Receive</Text>
+							<Text style={{color:Colors.LightDark, textAlign:'left', ...gstyle.t0}}>From 0x39349349</Text>
 						</View>
-						<View>
-							<Text style={{color:Colors.Light, textAlign:'right', ...gstyle.t3}}>BNB</Text>
-							<Text style={{color:Colors.LightDark, textAlign:'right'}}>1000000 BNB</Text>
-						</View>
+					</View>
+					<View>
+						<Text style={{color:Colors.Light, textAlign:'right', ...gstyle.t3}}>BNB</Text>
+						<Text style={{color:Colors.LightDark, textAlign:'right'}}>1000000 BNB</Text>
+					</View>
 				</TouchableOpacity>
 				<TouchableOpacity style={{...styles.coincard,  ...styles.justify}} onPress={()=>{navigation?.navigate('Wallet_Send')}}>
 						<View style={styles.justify}>

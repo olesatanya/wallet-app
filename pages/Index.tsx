@@ -32,14 +32,14 @@ const SettingStack = createStackNavigator();
 
 const WalletStackNavigator = () => {
 	return (
-			<WalletStack.Navigator  screenOptions={{headerShown: false, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS}} initialRouteName={'Wallet_Home'}>
-				<WalletStack.Screen name="Wallet_Home" component={Wallet} />
-				<WalletStack.Screen name="Wallet_Import" component={WalletTokenImport} />
-				<WalletStack.Screen name="Wallet_Info" component={WalletInfo} />
-				<WalletStack.Screen name="Wallet_Send" component={WalletSend} />
-				<WalletStack.Screen name="Wallet_Deposit" component={WalletDeposit} />
-				<WalletStack.Screen name="Wallet_Confirm" component={WalletConfirm} />
-			</WalletStack.Navigator>
+		<WalletStack.Navigator  screenOptions={{headerShown: false, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS}} initialRouteName={'Wallet_Home'}>
+			<WalletStack.Screen name="Wallet_Home" component={Wallet} />
+			<WalletStack.Screen name="Wallet_Import" component={WalletTokenImport} />
+			<WalletStack.Screen name="Wallet_Info" component={WalletInfo} />
+			<WalletStack.Screen name="Wallet_Send" component={WalletSend} />
+			<WalletStack.Screen name="Wallet_Deposit" component={WalletDeposit} />
+			<WalletStack.Screen name="Wallet_Confirm" component={WalletConfirm} />
+		</WalletStack.Navigator>
 	)
 }
 const CollectionStackNavigator = () => {

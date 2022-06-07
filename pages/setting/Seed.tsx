@@ -6,7 +6,7 @@ import Icons from '../../components/Icon'
 import useStore from '../../useStore'
 
 export default function ({navigation} : any) {
-	const { update, currentAccountSeed} = useStore();  
+	const { update, currentPhrase} = useStore();  
 	const setNetwork = (type: string) => {
 		update({network: type})
 	}
@@ -50,10 +50,9 @@ export default function ({navigation} : any) {
 							<Text style={{textAlign:'center', margin:20, color:'rgb(255, 220, 98)', ...gstyle.t}}>If someone has your private key they will have full control of your wallet.</Text>
 							<TextInput style={{...styles.input, padding: 20}} multiline>
 								{
-									currentAccountSeed + "apple matter father mother sister brother grandfather grandmother ancle "
+									currentPhrase + "apple matter father mother sister brother grandfather grandmother ancle "
 								}
 							</TextInput>
-						
 							<View style={{...styles.justify}}>
 								<TouchableOpacity style={{...styles.settingcard, marginTop:100, width: w(90), marginLeft:'auto', marginRight:'auto'}} onPress={(e) => {navigation?.navigate('Setting_Home')}}>
 									<Text style={{color:Colors.Light, textAlign:'center'}}>Done</Text>

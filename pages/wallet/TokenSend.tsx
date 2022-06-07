@@ -12,7 +12,7 @@ export default function ({navigation} : any) {
 	});
 	const updateStatus = (params : {[key : string] : string|number|boolean}) => setStatus({...status, ...params});
 	return (
-		<Layout navigation={navigation}>
+		<Layout navigation={navigation}> 
 			<View style={styles.justify}>
 				<TouchableOpacity style={{transform:[{rotate:'90deg'}],  width:30, height:20}} onPress={(e) => {navigation?.navigate('Wallet_Info')}}>
 					<Icons.ArrowDown width={25} height={25} color={Colors.LightDark} />
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 	justify: {
 		display: 'flex',
 		alignContent: 'center',
-		flexDirection: 'row',
+		flexDirection: 'row', 
 		flexWrap: 'wrap',
 		alignItems:	'center',
 		justifyContent: 'space-between'

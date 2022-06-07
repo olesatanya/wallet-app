@@ -22,7 +22,6 @@ export default function ({navigation} : any) {
 		{name: 'Fantom Testnet', rpc:'', chainId: 1, explorer: '', symbol:''},
 	]
 
-
 	return (
 		<Layout navigation={navigation}>
 			<View style={styles.justify}>

@@ -8,19 +8,19 @@ import { TextInput } from 'react-native-gesture-handler';
 
 
 export default function ({navigation} : any) {
-	const { update, currentAccount, currentName} = useStore();  
+	const { update, currentAddress, currentName} = useStore();  
 	// React.useEffect(()=>{
-	// 	update({currentAccount:'0x139F23D801939123A4eBA0d1E9791AA3Fc495eb3', currentName:'Tanya'})
+	// 	update({currentAddress:'0x139F23D801939123A4eBA0d1E9791AA3Fc495eb3', currentName:'Tanya'})
 	// }, [])
 	return (
 		<Layout navigation={navigation}>
 			<View style={{padding:10,  display:'flex'}}>
 			 	<Text style={{color:Colors.Light, ...gstyle.t2, textAlign:'center'}}>Setting</Text>
-				<TouchableOpacity onPress={()=>{copyToClipboard(currentAccount); }}>
+				<TouchableOpacity onPress={()=>{copyToClipboard(currentAddress); }}>
 					<TextInput style={{color:Colors.LightDark, textAlign:'center', ...gstyle.t3}}>{currentName}</TextInput>
 				</TouchableOpacity>
-				<TouchableOpacity onPress={()=>{copyToClipboard(currentAccount); }}>
-					<Text style={{color:Colors.LightDark, textAlign:'center', marginTop:10}}>{currentAccount}</Text>
+				<TouchableOpacity onPress={()=>{copyToClipboard(currentAddress); }}>
+					<Text style={{color:Colors.LightDark, textAlign:'center', marginTop:10}}>{currentAddress}</Text>
 				</TouchableOpacity>
 				<TouchableOpacity style={{...styles.settingcard, marginTop:10, ...styles.justify, alignContent:'center'}} onPress={(e) => {navigation?.navigate('Setting_Language')}}>
 					<View>

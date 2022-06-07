@@ -6,7 +6,7 @@ import Icons from '../../components/Icon'
 import useStore from '../../useStore'
 
 export default function ({navigation} : any) {
-	const { update, currentAccount} = useStore();  
+	const { update, currentAddress} = useStore();  
 	const removeWallet = async () => {
 
 	}
@@ -20,7 +20,7 @@ export default function ({navigation} : any) {
 				<View></View>
 			</View>
 			<View style={{padding: 10, marginTop: 30}}>
-				<Text style={{textAlign:'center', color:Colors.Light, ...gstyle.t}}>({currentAccount})</Text>
+				<Text style={{textAlign:'center', color:Colors.Light, ...gstyle.t}}>({currentAddress})</Text>
 				<Text style={{textAlign:'center', margin:20, color:Colors.LightDark, ...gstyle.t}}>Even though you are removing this wallet from Phantom, you will be able to re-derive it using your mnemonic in this or another wallet.</Text>
 				<View style={{...styles.justify, justifyContent:'space-around'}}>
 					<TouchableOpacity style={{...styles.settingcard, marginTop:10}} onPress={(e) => {navigation?.navigate('Setting_Home')}}>

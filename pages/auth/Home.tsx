@@ -1,5 +1,4 @@
 import { StyleSheet, TouchableOpacity, View, Image, Text } from 'react-native';
-import Layout from '../Layout'
 import {Colors, h, w, gstyle} from '../Theme'; 
 
 export default function ({navigation} : any) {

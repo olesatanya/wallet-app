@@ -1,6 +1,6 @@
 import React from "react";
 import {View, StyleSheet, TouchableOpacity, Text, ScrollView} from "react-native"; 
-import Spinner from 'react-native-loading-spinner-overlay';
+// import Spinner from 'react-native-loading-spinner-overlay';
 import Icons from '../components/Icon'
 import {Colors,  w, gstyle, h} from './Theme'; 
 import useStore, {hmac} from '../useStore';
@@ -14,8 +14,6 @@ const Layout = (props:any) => {
 		showMenu :  false
 	})
 
-
-
 	return (
 		<View style={{backgroundColor: Colors.Dark, minHeight:"100%"}}>
 			<View style={styles.header}>
@@ -27,7 +25,7 @@ const Layout = (props:any) => {
 			<ScrollView style={{marginTop:60}}>
 				{props.children}
 			</ScrollView>
-			<Spinner visible = {loading} />
+			{/* <Spinner visible = {loading} /> */}
 			{
 				status.showMenu && (
 					<View style={styles.sidemenu}>

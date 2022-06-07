@@ -1,0 +1,21 @@
+{
+    "1": {
+        "name": "Ethereum Network",
+        "rpc": "",
+        "symbol": "",
+		"decimals": 0,
+		"explorer": "",
+        "tokens": {
+            "0x": {
+                "name": "Tether USD",
+                "symbol": "USDT",
+                "decimals": 6
+            },
+            "0x1": {
+                "name": "Tether USD",
+                "symbol": "USDT",
+                "decimals": 6
+            }
+        }
+    }
+}

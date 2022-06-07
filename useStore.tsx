@@ -29,18 +29,19 @@ export const hmac = async (plain:string):Promise<string> => {
 export const showToast = async (msg:string, msg2:string, type="error") => {
 	if(msg.length > 30 ) msg = msg.substring(0, 25)+"...";
 	if(msg2.length > 45 ) msg2 = msg2.substring(0, 40)+"...";
-
+	alert(msg + msg2)
 }
+
 const useStore = ():UseStoreTypes => {
 	const G = useSelector((state:StoreTypes)=>state)
 	const L = G.L
-	const dispatch = useDispatch()
+	const dispatch = useDispatch() 
 	const update = (payload:{[key:string]:any}) => dispatch(Slice.actions.update(payload))
 	const T = (key:string, args?:{[key:string]:string|number}|string|number):string => {
 		let text = L[key]
 		if (text===undefined) throw new Error('Undefined lang key[' + key + ']')
-		if (typeof args==='string' || typeof args==='number') {
-			text = text.replace(/\{\w+\}/, String(args))
+		if (typeof args==='string' || typeof args==='number') { 
+			text = text.replace(/\{\w+\}/, String(args)) 
 		} else {
 			for(let k in args) text = text.replace(new RegExp('{'+k+'}', 'g'), String(args[k]))
 		}

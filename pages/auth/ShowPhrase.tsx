@@ -23,7 +23,6 @@ export default function ({navigation} : any) {
 }
 
 const styles = StyleSheet.create({
-
 	header: {
 		position: 'absolute',
 		display: 'flex',

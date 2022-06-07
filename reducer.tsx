@@ -1,22 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit'; 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import DefaultNetworks from './config/networks.json'
 const locales = {
     "en-US": require('./locales/en-US.json'),
     "zh-CN": require('./locales/zh-CN.json'),
 }
 const lang = 'en-US';
-const appKey = 'neon-store';
+const appKey = 'neon-store-1.0';
 
 var initialState: StoreTypes = {
 	lang,
     L: locales[lang],
-	currentAccount: '',
-	currentAccountSeed: '',
-	currentAccountKey: '',
+	currentAddress: '',
 	currentName: '',
+	currentPhrase: '',
+	currentPublicKey: '',
+	currentPrivateKey: '',
 	updated: 0, 
 	loading: false,
+	locked: false,
 	network: '',
 	chainId: 1
 } 
@@ -27,9 +29,24 @@ export const storeData = async (value:any) => {
 }
 
 const getData = async () => {
+	// try {
+	// 	const buf = await AsyncStorage.getItem(appKey);
+	// 	if (buf) {
+	// 		const json = JSON.parse(buf)
+	// 		for(let k in json) {
+	// 			if (initialState[k] !== undefined) {
+	// 				initialState[k] = json[k]
+	// 			}
+	// 		}
+	// 	}
+	// } catch (err) {
+	// 	console.log(err)
+	// }
+	// console.log(initialState)
+	// return initialState
 	try {
 		const buf = await AsyncStorage.getItem(appKey)
-		const init:any = {};
+		console.log(buf)
 		if (buf) {
 			const json = JSON.parse(buf)
 			return json;
@@ -42,16 +59,17 @@ const getData = async () => {
 
 (async  function (){
 	const v = await getData()
-	initialState = v;
+	initialState = {...DefaultNetworks, ...v};
+	return v;
 })()
 
 export default createSlice({
 	name: 'neon-wallet-app',
-	initialState,
+	initialState: async () => {return {"a":"b"}},
 	reducers: {
 		update: (state:any, action:any) => {
 			for (const k in action.payload) {
-				if (state[k] === undefined) new Error('🦊 undefined account item')
+				if (state[k] === undefined) new Error('🦊 undefined account item') 
 				state[k] = action.payload[k]
 			}
 			storeData(state)

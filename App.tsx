@@ -14,14 +14,16 @@ import AuthConfirmPhrase from './pages/auth/ConfirmPhrase'
 import AuthImport from './pages/auth/Import'
 import AuthDone from './pages/auth/Done'
 import AuthLogin from './pages/auth/Login'
+import useStore from './useStore'
 
 const store = configureStore({reducer: Slice.reducer});
 const Stack = createNativeStackNavigator();
 
 const AppContainer = () => {
+	const {currentAddress} = useStore();
 	return (
 		<NavigationContainer>
-			<Stack.Navigator  initialRouteName={'AuthLogin'}  screenOptions={{headerShown: false, animation:'slide_from_right'}}>
+			<Stack.Navigator  initialRouteName={currentAddress&& currentAddress!==null && currentAddress!=='' ? 'AuthLogin' : 'AuthHome'}  screenOptions={{headerShown: false, animation:'slide_from_right'}}>
 				<Stack.Screen name="Index" component={Index} />	
 				<Stack.Screen name="AuthHome" component={AuthHome} />
 				<Stack.Screen name="AuthNew" component={AuthNew} />

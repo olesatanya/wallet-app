@@ -10,6 +10,10 @@ var crypto = require('crypto');
 import ABI from '../config/abi.json'
 import {NF} from '../useStore'
 
+export const checkMnemonic = async (mnemonic: string) => {
+	return await bip39.validateMnemonic(mnemonic);
+}
+
 export const createMnemonic = async () => {
 	var randomBytes = crypto.randomBytes(16) 
 	var mnemonic = await bip39.entropyToMnemonic(randomBytes.toString('hex'))

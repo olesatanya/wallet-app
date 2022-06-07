@@ -8,7 +8,7 @@ import useStore from '../../useStore'
 import Barcode from '../../components/captureqr'
 
 export default function ({navigation} : any) {
-	const { currentAccount, chainId, update} = useStore(); 
+	const { currentAddress, chainId, update} = useStore(); 
 	const [status, setStatus] = React.useState({
 		scanned : false,
 		data:	'',
@@ -91,7 +91,7 @@ export default function ({navigation} : any) {
 
  
 	const approveSession =  () => {
-		const address = currentAccount;
+		const address = currentAddress;
 		console.log(connector)
 		if (connector) {
 			console.log('approve')
@@ -141,7 +141,7 @@ export default function ({navigation} : any) {
 						<Image source={require('../../assets/icon.png')} style={{width:20, height: 20, borderRadius: 5, margin: 5}}/>
 						<Image source={{uri:status.icon || 'https://ul1vl.csb.app/favicon.ico'}} style={{width:20, height: 20, borderRadius: 5, margin: 5}}/>
 					</View>
-					<Text style={{textAlign:'center', color:Colors.Light, ...gstyle.t}}>({currentAccount})</Text>
+					<Text style={{textAlign:'center', color:Colors.Light, ...gstyle.t}}>({currentAddress})</Text>
 					{
 						status.scanned &&
 						<>
